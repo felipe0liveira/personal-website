@@ -4,12 +4,29 @@ import { Window } from '@components/Window'
 import { Blockquote } from '@components/Blockquote'
 import { Tabs } from '@components/Tabs'
 import { Columns } from '@components/Layout'
+import { TableView } from '@components/TableView'
 import Image from 'next/image'
+import { useEffect, useState } from 'react'
+import { request } from '@/utils/http'
 
 export default function Home() {
+	const [githubData, setGithubData] = useState<any[]>()
+
+	useEffect(() => {
+		request('/api/github/felipe0liveira/repositories').then((data) =>
+			setGithubData(data),
+		)
+	}, [])
 	return (
 		<>
 			<Header />
+			<Window title='Why does my website have this visual?'>
+				<>
+					<Paragraph>
+						{`My site sports a retro look, inspired by none other than Windows 98! Why? Because 1998 is the year I was born, and I wanted something that stands out from the crowd. Blending a modern site with a classic OS vibe felt like the perfect way to create a unique digital experience. It's a playful nod to the past, wrapped in a design that's both nostalgic and fresh.`}
+					</Paragraph>
+				</>
+			</Window>
 
 			<Columns>
 				<Window title="That's me">
@@ -154,6 +171,33 @@ export default function Home() {
 					},
 				]}
 			/>
+
+			{githubData && (
+				<Columns>
+					<Window title='Github'>
+						<>
+							<TableView
+								heading={[
+									{ title: 'Stars', key: 'stargazersCount' },
+									{ title: 'Name', key: 'name' },
+									{ title: 'Size', key: 'size' },
+									{ title: 'URL', key: 'url', label: 'Visit', link: true },
+								]}
+								list={githubData}
+							/>
+							<Blockquote>
+								<Paragraph>
+									Get to know more about my profile on{' '}
+									<a href='https://github.com/felipe0liveira' target='_blank'>
+										Github
+									</a>
+									.
+								</Paragraph>
+							</Blockquote>
+						</>
+					</Window>
+				</Columns>
+			)}
 		</>
 	)
 }

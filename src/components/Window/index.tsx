@@ -24,7 +24,10 @@ export const Window = ({ title, children }: WindowProps) => {
 
 	if (windowState === 'closed') return <></>
 	return (
-		<div className='window' style={{ height: 'min-content' }}>
+		<div
+			className='window'
+			style={{ height: 'min-content', width: '-webkit-fill-available' }}
+		>
 			<div className='title-bar'>
 				<div className='title-bar-text'>{title}</div>
 				<div className='title-bar-controls'>
