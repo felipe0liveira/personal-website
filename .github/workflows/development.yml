@@ -56,8 +56,4 @@ jobs:
           --region $REGION \
           --image $DOCKER_IMAGE:dev \
           --account $GOOGLE_SERVICE_ACCOUNT \
-          --min-instances=0 \
-          --max-instances=2 \
-          --timeout=300s \
-          --memory=128Mi \
           --quiet
