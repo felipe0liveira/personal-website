@@ -45,7 +45,7 @@ export default function Home() {
 						/>
 						<Paragraph>
 							I really love mountains and nature. This photo is from a trip that
-							I did with my wife.
+							I did with my wife. I looved it.
 						</Paragraph>
 					</>
 				</Window>
