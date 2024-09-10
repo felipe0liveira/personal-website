@@ -30,6 +30,14 @@ jobs:
       
       - name: Setup SDK on Google Cloud Platform
         uses: google-github-actions/setup-gcloud@v2
+
+      - name: Cache Docker layers
+        uses: actions/cache@v3
+        with:
+          path: /tmp/.buildx-cache
+          key: ${{ runner.os }}-buildx-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-buildx-
           
       - name: Build Docker Image
         run: docker build -t $DOCKER_IMAGE:dev .
@@ -52,7 +60,7 @@ jobs:
       - name: Cloud Run Deploy
         run: |-
           gcloud run deploy $SERVICE \
-          --project $PROJECT_NAME \
+          --project $PROJECT_NAME-development \
           --region $REGION \
           --image $DOCKER_IMAGE:dev \
           --account $GOOGLE_SERVICE_ACCOUNT \
