@@ -52,7 +52,7 @@ jobs:
       - name: Cloud Run Deploy
         run: |-
           gcloud run deploy $SERVICE \
-          --project $PROJECT_NAME-development \
+          --project 'website-development' \
           --region $REGION \
           --image $DOCKER_IMAGE:dev \
           --account $GOOGLE_SERVICE_ACCOUNT \
