@@ -7,7 +7,7 @@ import { Columns } from '@components/Layout'
 import { TableView } from '@components/TableView'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
-import { request } from '@/utils/http'
+import { request } from '@utils/http'
 
 export default function Home() {
 	const [githubData, setGithubData] = useState<any[]>()
