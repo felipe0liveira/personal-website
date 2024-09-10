@@ -23,7 +23,7 @@ export default function Home() {
 			<Window title='Why does my website have this visual?'>
 				<>
 					<Paragraph>
-						{`My site sports a retro look, inspired by none other than Windows 98! Why? Because 1998 is the year I was born, and I wanted something that stands out from the crowd. Blending a modern site with a classic OS vibe felt like the perfect way to create a unique digital experience. It's a playful nod to the past, wrapped in a design that's both nostalgic and fresh.`}
+						{`My website sports a retro look, inspired by none other than Windows 98! Why? Because 1998 is the year I was born, and I wanted something that stands out from the crowd. Blending a modern site with a classic OS vibe felt like the perfect way to create a unique digital experience. It's a playful nod to the past, wrapped in a design that's both nostalgic and fresh.`}
 					</Paragraph>
 				</>
 			</Window>
