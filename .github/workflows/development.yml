@@ -11,7 +11,7 @@ env:
   CREDENTIALS: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_CREDENTIALS }}
   DOCKER_IMAGE: ${{ secrets.GOOGLE_DOCKER_IMAGE }}
   REGION: ${{ secrets.GOOGLE_REGION }}
-  SERVICE: ${{ secrets.GOOGLE_CLOUD_RUN_SERVICE }}
+  SERVICE: '${{ secrets.GOOGLE_CLOUD_RUN_SERVICE }}-development'
 
 jobs:
   # build:
@@ -52,7 +52,7 @@ jobs:
       - name: Cloud Run Deploy
         run: |-
           gcloud run deploy $SERVICE \
-          --project 'website-development' \
+          --project $PROJECT_NAME \
           --region $REGION \
           --image $DOCKER_IMAGE:dev \
           --account $GOOGLE_SERVICE_ACCOUNT \

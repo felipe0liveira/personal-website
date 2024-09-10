@@ -11,7 +11,7 @@ env:
   CREDENTIALS: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_CREDENTIALS }}
   DOCKER_IMAGE: ${{ secrets.GOOGLE_DOCKER_IMAGE }}
   REGION: ${{ secrets.GOOGLE_REGION }}
-  SERVICE: ${{ secrets.GOOGLE_CLOUD_RUN_SERVICE }}
+  SERVICE: '${{ secrets.GOOGLE_CLOUD_RUN_SERVICE }}-production'
 
 jobs:
   build:
