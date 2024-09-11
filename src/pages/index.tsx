@@ -19,7 +19,7 @@ export default function Home() {
 			setGithubData(data),
 		)
 
-		if (getUserLanguage() === 'pt-BR') setLang('pt-BR')
+		setLang(getUserLanguage() === 'pt-BR' ? 'pt-BR' : 'en-US')
 	}, [])
 
 	if (!lang)
